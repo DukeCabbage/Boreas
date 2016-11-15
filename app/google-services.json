@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1075850547093",
+    "firebase_url": "https://project-khoine.firebaseio.com",
+    "project_id": "project-khoine",
+    "storage_bucket": "project-khoine.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075850547093:android:c76806408efe3800",
+        "android_client_info": {
+          "package_name": "com.cabbage.boreas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075850547093-l8gg45l92lp4b9uh1c84v17hq4lul5tn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cabbage.boreas",
+            "certificate_hash": "4482C2CE081A743C3F1DD8B4B6CEC9183C9273F1"
+          }
+        },
+        {
+          "client_id": "1075850547093-9gpblk3rc33hoja49rujvu88mipcar6a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt0mDNP6Y4-MsjBSPoaoI4ZDP13tb5T18"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1075850547093-9gpblk3rc33hoja49rujvu88mipcar6a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
