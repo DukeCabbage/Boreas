@@ -8,11 +8,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.cabbage.boreas.model.Resort;
 
+import java.util.Locale;
 
-public class ResortListFragment extends Fragment {
+
+public class ResortListFragment extends Fragment
+        implements ResortRecyclerViewAdapter.ItemActionCallback {
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -53,7 +57,7 @@ public class ResortListFragment extends Fragment {
 //            } else {
 //                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
 //            }
-            recyclerView.setAdapter(new ResortRecyclerViewAdapter(Resort.dummies));
+            recyclerView.setAdapter(new ResortRecyclerViewAdapter(Resort.dummies, this));
         }
         return view;
     }
@@ -67,5 +71,14 @@ public class ResortListFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void action(Resort resort, String action) {
+        if (action.equals("short")) {
+            Toast.makeText(getContext(), String.format(Locale.CANADA, "%s clicked", resort.displayName), Toast.LENGTH_LONG).show();
+        } else if (action.equals("long")){
+            Toast.makeText(getContext(), String.format(Locale.CANADA, "%s long clicked", resort.displayName), Toast.LENGTH_LONG).show();
+        }
     }
 }

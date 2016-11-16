@@ -8,9 +8,10 @@ public class Resort {
     public String identifier;
     public String displayName;
     public String country;
-    public double latitude;
-    public double longitude;
+    public float latitude;
+    public float longitude;
     public List<String> tags;
+    public int lastUpdate;
 
     public Resort() {}
 
@@ -23,14 +24,14 @@ public class Resort {
 
     static {
         Resort whistler = new Resort("whistler", "Whistler Blackcomb");
-        whistler.latitude = 50.108333;
-        whistler.longitude = -122.9425;
+        whistler.latitude = 50.108333f;
+        whistler.longitude = -122.9425f;
         whistler.country = CountryEnum.Canada.getCode();
         dummies.add(whistler);
 
         Resort alpe = new Resort("lalpe-dHuez", "L'Alpe d'Huez");
-        alpe.latitude = 45.060278;
-        alpe.longitude = 6.071389;
+        alpe.latitude = 45.060278f;
+        alpe.longitude = 6.071389f;
         alpe.country = CountryEnum.France.getCode();
         dummies.add(alpe);
     }

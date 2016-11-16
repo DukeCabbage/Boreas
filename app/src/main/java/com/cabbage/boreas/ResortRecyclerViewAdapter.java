@@ -18,9 +18,11 @@ import butterknife.ButterKnife;
 public class ResortRecyclerViewAdapter extends RecyclerView.Adapter<ResortRecyclerViewAdapter.ViewHolder> {
 
     private final List<Resort> mValues;
+    private final ItemActionCallback mCallback;
 
-    public ResortRecyclerViewAdapter(List<Resort> items) {
+    public ResortRecyclerViewAdapter(List<Resort> items, ItemActionCallback callback) {
         mValues = items;
+        mCallback = callback;
     }
 
     @Override
@@ -38,11 +40,20 @@ public class ResortRecyclerViewAdapter extends RecyclerView.Adapter<ResortRecycl
         holder.tvLatLng.setText(strLatLng);
         CountryEnum countryEnum = CountryEnum.codeToEnum(item.country);
         holder.tvCountry.setText(countryEnum == null ? "" : countryEnum.getName());
+        holder.itemView.setOnClickListener(view -> mCallback.action(item, "short"));
+        holder.itemView.setOnLongClickListener(view -> {
+            mCallback.action(item, "long");
+            return true;
+        });
     }
 
     @Override
     public int getItemCount() {
         return mValues.size();
+    }
+
+    public interface ItemActionCallback {
+        void action(Resort resort, String action);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
