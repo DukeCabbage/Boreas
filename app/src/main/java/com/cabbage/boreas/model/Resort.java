@@ -5,21 +5,6 @@ import java.util.List;
 
 public class Resort {
 
-    public String identifier;
-    public String displayName;
-    public String country;
-    public float latitude;
-    public float longitude;
-    public List<String> tags;
-    public int lastUpdate;
-
-    public Resort() {}
-
-    public Resort(String identifier, String displayName) {
-        this.identifier = identifier;
-        this.displayName = displayName;
-    }
-
     public static List<Resort> dummies = new ArrayList<>();
 
     static {
@@ -34,5 +19,20 @@ public class Resort {
         alpe.longitude = 6.071389f;
         alpe.country = CountryEnum.France.getCode();
         dummies.add(alpe);
+    }
+
+    public String identifier;
+    public String displayName;
+    public String country;
+    public float latitude;
+    public float longitude;
+    public List<String> tags;
+    public int lastUpdate;
+
+    public Resort() {}
+
+    public Resort(String identifier, String displayName) {
+        this.identifier = identifier;
+        this.displayName = displayName;
     }
 }

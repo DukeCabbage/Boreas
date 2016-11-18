@@ -1,11 +1,25 @@
-package com.cabbage.boreas;
+package com.cabbage.boreas.applicaton;
 
 import android.app.Application;
-import android.content.Context;
 
 import timber.log.Timber;
 
 public class MyApplication extends Application {
+
+    static AppComponent appComponent;
+
+    public static AppComponent getAppComponent() {
+        if (appComponent == null) {
+            appComponent = DaggerAppComponent.builder()
+                    .networkModule(new NetworkModule())
+                    .build();
+        }
+        return appComponent;
+    }
+
+//    public static synchronized MyApplication getInstance(Context context) {
+//        return (MyApplication) context.getApplicationContext();
+//    }
 
     @Override
     public void onCreate() {
@@ -17,9 +31,5 @@ public class MyApplication extends Application {
                 return super.createStackElementTag(element) + ':' + element.getLineNumber();
             }
         });
-    }
-
-    public static synchronized MyApplication getInstance(Context context) {
-        return (MyApplication) context.getApplicationContext();
     }
 }
