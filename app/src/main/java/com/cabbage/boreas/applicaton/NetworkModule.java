@@ -22,6 +22,9 @@ public class NetworkModule {
     private final static String DARK_SKY_BASE_URL = "https://api.darksky.net/forecast/";
     private final static String DARK_SKY_API_KEY = "f2778d0372266ff4099d2ee062db20bf";
 
+    private final static String WORLD_WEATHER_BASE_URL = "http://api.worldweatheronline.com/premium/v1/";
+    private final static String WORLD_WEATHER_API_KEY = "6bad844eed5e4b67a44211226160911";
+
     @Provides
     @Singleton
     public GsonConverterFactory providesGsonConvertorFactory() {
@@ -59,9 +62,26 @@ public class NetworkModule {
                 .build();
     }
 
+    @Provides
+    @Singleton
+    @Named("WorldWeather")
+    public Retrofit providesWorldWeatherRetrofit(GsonConverterFactory gsonConverterFactory,
+                                            RxJavaCallAdapterFactory rxJavaCallAdapterFactory,
+                                            OkHttpClient okHttpClient) {
+        return new Retrofit.Builder()
+                .baseUrl(WORLD_WEATHER_BASE_URL)
+                .client(okHttpClient)
+                .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                .addConverterFactory(gsonConverterFactory)
+                .build();
+    }
+
     public interface DarkSkyApi {
 
         @GET(DARK_SKY_API_KEY + "/{latlng}?exclude=minutely,hourly&units=si")
         Observable<Result> simpleGetWeather(@Path("latlng") String latLng);
+    }
+
+    public interface  WorldWeatherApi {
     }
 }

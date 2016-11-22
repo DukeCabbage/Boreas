@@ -1,13 +1,9 @@
 package com.cabbage.boreas.model;
 
-import com.google.firebase.database.Exclude;
-
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Random;
 import java.util.TimeZone;
 
 public class BoreasDataPoint {
@@ -41,7 +37,7 @@ public class BoreasDataPoint {
 //        }
     }
 
-//    public String resortIdentifier;
+    //    public String resortIdentifier;
     public String timeZone;
     public long time;
     public float temperature;
@@ -49,21 +45,4 @@ public class BoreasDataPoint {
     public float precipitation; // mm
     public float snowPrecipitation; // mm
     public float accumulatedSnowPrecipitation;  //cm
-    @Exclude
-    private Date date;
-
-    public Date getDate() {
-//        if (date == null) {
-//        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone(timeZone), Locale.getDefault());
-//        Calendar calendar = Calendar.getInstance(TimeZone.getDefault() , Locale.getDefault());
-//        calendar.setTimeInMillis(time);
-//        date = calendar.getTime();
-
-
-
-//        }
-
-        return date;
-    }
-
 }

@@ -1,5 +1,6 @@
 package com.cabbage.boreas;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,12 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.cabbage.boreas.applicaton.MyApplication;
 import com.cabbage.boreas.model.BoreasDataPoint;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -36,7 +37,7 @@ public class DarkSkyFragment extends Fragment {
     }
 
     @OnClick(R.id.btn_request)
-    void sendRequest() {
+    void sendRequest(View view) {
         String lat = etLatitude.getText().toString();
         String lng = etLongitude.getText().toString();
 
@@ -46,7 +47,8 @@ public class DarkSkyFragment extends Fragment {
                 .subscribe(new Subscriber<List<BoreasDataPoint>>() {
                     @Override
                     public void onCompleted() {
-
+                        InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                     }
 
                     @Override

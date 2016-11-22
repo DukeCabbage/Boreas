@@ -8,12 +8,14 @@ import android.widget.TextView;
 
 import com.cabbage.boreas.model.BoreasDataPoint;
 
+import org.threeten.bp.Instant;
+import org.threeten.bp.ZoneId;
+import org.threeten.bp.format.DateTimeFormatter;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,8 +38,10 @@ public class WeatherRecyclerViewAdapter extends RecyclerView.Adapter<WeatherRecy
     public void onBindViewHolder(ViewHolder holder, int position) {
         BoreasDataPoint item = mItems.get(position);
 
-        SimpleDateFormat format = new SimpleDateFormat("k:mm a (EEE)", Locale.getDefault());
-        String timeStr = format.format(item.getDate());
+        Instant instant = Instant.ofEpochSecond(item.time);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM. dd(EEE) hh:mm a");
+//        String timeStr = instant.atZone(ZoneId.of(item.timeZone)).format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        String timeStr = instant.atZone(ZoneId.of(item.timeZone)).format(formatter);
         holder.tvTime.setText(timeStr);
 
         DecimalFormat format1 = new DecimalFormat("0.0" + CELECIUS);

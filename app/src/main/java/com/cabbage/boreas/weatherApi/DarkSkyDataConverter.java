@@ -26,7 +26,7 @@ public class DarkSkyDataConverter implements Func1<Result, Observable<List<Borea
             for (DataPoint dataPoint : dailyList.data) {
                 BoreasDataPoint boreasDataPoint = new BoreasDataPoint();
                 boreasDataPoint.timeZone = result.timezone;
-                boreasDataPoint.time = dataPoint.time * 1000;
+                boreasDataPoint.time = dataPoint.time;
                 boreasDataPoint.temperature = 0.0f * dataPoint.temperatureMax + 1.0f * dataPoint.temperatureMin;
                 boreasDataPoint.rainChance = dataPoint.precipProbability;
                 if (dataPoint.precipType.equalsIgnoreCase("snow")) {
