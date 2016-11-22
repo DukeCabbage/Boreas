@@ -1,5 +1,7 @@
 package com.cabbage.boreas.applicaton;
 
+import com.cabbage.boreas.weatherApi.WeatherManager;
+
 import javax.inject.Named;
 import javax.inject.Singleton;
 

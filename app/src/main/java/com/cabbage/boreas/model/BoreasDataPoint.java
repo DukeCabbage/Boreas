@@ -23,38 +23,44 @@ public class BoreasDataPoint {
         long milliSecInDay = 24 * 2600 * 1000L;
 
 
-        for (int i = 0; i < 5; i++) {
-            BoreasDataPoint point = new BoreasDataPoint();
-            point.resortIdentifier = "whislter";
-            point.timeZone = testTimeZone;
-            point.time = testStartTime + i *milliSecInDay;
-
-            point.temperature = 6 + new Random().nextInt(3);
-            point.rainChance = new Random().nextFloat();
-            point.precipitation = new Random().nextFloat() * 10f;
-            point.snowPrecipitation =  new Random().nextFloat() * 10f;
-            point.snowPrecipitation = Math.min(point.precipitation, point.snowPrecipitation);
-
-            point.accumulatedSnowPrecipitation = new Random().nextFloat() * 30f;
-        }
+//        for (int i = 0; i < 5; i++) {
+//            BoreasDataPoint point = new BoreasDataPoint();
+////            point.resortIdentifier = "whislter";
+//            point.timeZone = testTimeZone;
+//            point.time = testStartTime + i *milliSecInDay;
+//
+//            point.temperature = 6 + new Random().nextFloat() * 3;
+//            point.rainChance = new Random().nextFloat();
+//            point.precipitation = new Random().nextFloat() * 10f;
+//            point.snowPrecipitation =  new Random().nextFloat() * 10f;
+//            point.snowPrecipitation = Math.min(point.precipitation, point.snowPrecipitation);
+//
+//            point.accumulatedSnowPrecipitation = new Random().nextFloat() * 3f;
+//
+//            dummies.add(point);
+//        }
     }
 
-    public String resortIdentifier;
+//    public String resortIdentifier;
     public String timeZone;
     public long time;
     public float temperature;
     public float rainChance;
-    public float precipitation;
-    public float snowPrecipitation;
-    public float accumulatedSnowPrecipitation;
+    public float precipitation; // mm
+    public float snowPrecipitation; // mm
+    public float accumulatedSnowPrecipitation;  //cm
     @Exclude
     private Date date;
 
     public Date getDate() {
 //        if (date == null) {
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone(timeZone), Locale.getDefault());
-        calendar.setTimeInMillis(time);
-        date = calendar.getTime();
+//        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone(timeZone), Locale.getDefault());
+//        Calendar calendar = Calendar.getInstance(TimeZone.getDefault() , Locale.getDefault());
+//        calendar.setTimeInMillis(time);
+//        date = calendar.getTime();
+
+
+
 //        }
 
         return date;

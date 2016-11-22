@@ -2,6 +2,8 @@ package com.cabbage.boreas.applicaton;
 
 import android.app.Application;
 
+import com.jakewharton.threetenabp.AndroidThreeTen;
+
 import timber.log.Timber;
 
 public class MyApplication extends Application {
@@ -31,5 +33,7 @@ public class MyApplication extends Application {
                 return super.createStackElementTag(element) + ':' + element.getLineNumber();
             }
         });
+
+        AndroidThreeTen.init(this);
     }
 }

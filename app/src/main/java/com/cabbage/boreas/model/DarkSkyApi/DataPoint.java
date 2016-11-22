@@ -26,6 +26,9 @@ public class DataPoint {
     @SerializedName("moonPhase")
     @Expose
     public float moonPhase;
+    @SerializedName("precipAccumulation")
+    @Expose
+    public float precipAccumulation;
     @SerializedName("precipIntensity")
     @Expose
     public float precipIntensity;
@@ -41,6 +44,9 @@ public class DataPoint {
     @SerializedName("precipType")
     @Expose
     public String precipType;
+    @SerializedName("temperature")
+    @Expose
+    public float temperature;
     @SerializedName("temperatureMin")
     @Expose
     public float temperatureMin;
